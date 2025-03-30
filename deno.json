@@ -7,13 +7,9 @@
         "./serialization": "./src/serialization/index.ts"
     },
     "publish": {
-        "include": [
-            "./mod.ts",
-            "./README.md",
-            "./src/**/*.ts"
-        ]
+        "include": ["README.md", "mod.ts", "src/"]    
     },
-    "tasks": {
+        "tasks": {
         "dev": "deno test --watch"
     },
     "license": "MIT"
