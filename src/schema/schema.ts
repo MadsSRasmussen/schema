@@ -1,4 +1,4 @@
-import type { PrimitiveSchemaType, SchemaType } from './types.ts';
+import type { PrimitiveSchemaType, SchemaType } from "./types.ts";
 
 export abstract class Schema {
     public type: SchemaType;
@@ -53,18 +53,18 @@ export abstract class PrimitiveSchema extends Schema {
 
 export class NumberSchema extends PrimitiveSchema {
     constructor() {
-        super('number');
+        super("number");
     }
 }
 export class BooleanSchema extends PrimitiveSchema {
     constructor() {
-        super('boolean');
+        super("boolean");
     }
 }
 
 export class StringSchema extends PrimitiveSchema {
     constructor() {
-        super('string');
+        super("string");
     }
 }
 
@@ -81,7 +81,7 @@ export class ArraySchema extends Schema {
     public schema: Schema;
 
     constructor(schema: Schema) {
-        super('array');
+        super("array");
         this.schema = schema;
     }
 }
@@ -90,7 +90,7 @@ export class ObjectSchema extends Schema {
     public properties: Record<string, Schema>;
 
     constructor(properties: Record<string, Schema>) {
-        super('object');
+        super("object");
         this.properties = properties;
     }
 }

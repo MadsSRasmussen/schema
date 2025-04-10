@@ -1,1 +1,1 @@
-export { OpenAISerializer } from './openai-serializer/openai-serializer.ts';
+export { OpenAISerializer } from "./openai-serializer/openai-serializer.ts";

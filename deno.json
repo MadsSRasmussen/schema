@@ -7,10 +7,15 @@
         "./serialization": "./src/serialization/index.ts"
     },
     "publish": {
-        "include": ["README.md", "mod.ts", "src/"]    
+        "include": ["README.md", "mod.ts", "src/"]
     },
-        "tasks": {
+    "tasks": {
         "dev": "deno test --watch"
     },
-    "license": "MIT"
+    "license": "MIT",
+    "fmt": {
+        "useTabs": false,
+        "indentWidth": 4,
+        "semiColons": true
+    }
 }

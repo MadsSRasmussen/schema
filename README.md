@@ -1,14 +1,17 @@
 # Serializeable schema declerations in Typescript
 
-**Schema** is a serializeable shcema decleration library written in typescript. The developer experience of declaring a schema is inspirred by that of `Zod`.
+**Schema** is a serializeable shcema decleration library written in typescript.
+The developer experience of declaring a schema is inspirred by that of `Zod`.
 Features of the library includes:
 
 - Define typescript schema declerations via a fluent interface.
 - Serialize and parse shcmea definitions via different serialization methods.
 
-The library was originally developed to facilitate function-calling-definitions in a unified way to different ai-providers.
+The library was originally developed to facilitate function-calling-definitions
+in a unified way to different ai-providers.
 
 ## Table of contents:
+
 - [Installation](#installation)
 - [Usage](#usage)
 - [Serializers](#serializers)
@@ -18,10 +21,11 @@ The library was originally developed to facilitate function-calling-definitions 
 
 ### Using Deno:
 
-The Schema library is on `jsr` under `@msrass/schema`. You can include the library directly in a deno project with:
+The Schema library is on `jsr` under `@msrass/schema`. You can include the
+library directly in a deno project with:
 
 ```ts
-import { Schema as s } from 'jsr:@msrass/schema';
+import { Schema as s } from "jsr:@msrass/schema";
 ```
 
 Or using the `deno add` command:
@@ -33,25 +37,29 @@ deno add jsr:@msrass/schema
 ## Usage
 
 To declare a schema, simply import the abstract Schema class from the module:
+
 ```ts
-import { Schema as s } from '@msrass/schema';
+import { Schema as s } from "@msrass/schema";
 
 const objectSchema = s.object({
     stringSchema: s.string(),
-    numberSchema: s.number().describe('Only cool numbers for this field...'), // Add a description
-    enumSchema: s.enum(['foo', 'bar']).optional(), // Make the value nullable
-    arraySchema: s.array(s.boolean())
+    numberSchema: s.number().describe("Only cool numbers for this field..."), // Add a description
+    enumSchema: s.enum(["foo", "bar"]).optional(), // Make the value nullable
+    arraySchema: s.array(s.boolean()),
 });
 ```
-*Note that schemas marked as optional are nullable on their own, but can be undefined when nested in an object schema.*
 
-To serialize a schema; import a serializer and thereby select a serialization format:
+_Note that schemas marked as optional are nullable on their own, but can be
+undefined when nested in an object schema._
+
+To serialize a schema; import a serializer and thereby select a serialization
+format:
 
 ```ts
-import { Schema as s } from '@msrass/schema';
-import { OpenAISerializer } from '@msrass/schema/serialization';
+import { Schema as s } from "@msrass/schema";
+import { OpenAISerializer } from "@msrass/schema/serialization";
 
-const schema = Schema.string().describe('Serialilze me!');
+const schema = Schema.string().describe("Serialilze me!");
 
 const serializer = new OpenAISerializer();
 
@@ -69,9 +77,12 @@ The following is a complete list of all serializers available:
 
 ### OpenAISerializer
 
-The OpenAISerializer serializes data in a format that is directly compatible with the OpenAI api.
+The OpenAISerializer serializes data in a format that is directly compatible
+with the OpenAI api.
 
-The following is how the `objectSchema` specified in the usage example would be serialized:
+The following is how the `objectSchema` specified in the usage example would be
+serialized:
+
 ```json
 {
     "type": "object",
@@ -111,10 +122,12 @@ The following is how the `objectSchema` specified in the usage example would be 
 
 ## Contributing
 
-This project came to be based on the specific need I had; sending schema definitions between client and server in multiple formats.
-The scope is very simple, as that is the only feature of the project, it is crucially NOT a schema *validation* library similar to the likes of `Zod`.
+This project came to be based on the specific need I had; sending schema
+definitions between client and server in multiple formats. The scope is very
+simple, as that is the only feature of the project, it is crucially NOT a schema
+_validation_ library similar to the likes of `Zod`.
 
 As a result of the very minimal scope of this project, it has 0 dependencies.
 
-The project is build in `Deno` and uses the `Deno.test` test-runner.
-You are more than welcome to clone the project and submit a PR.
+The project is build in `Deno` and uses the `Deno.test` test-runner. You are
+more than welcome to clone the project and submit a PR.

@@ -1,4 +1,4 @@
-import type { Schema } from '../../mod.ts';
+import type { Schema } from "../../mod.ts";
 
 export interface SchemaSerializer {
     serializable(data: Schema): object;

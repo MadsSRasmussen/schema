@@ -1,4 +1,4 @@
-import type { PrimitiveSchemaType } from '../../schema/types.ts';
+import type { PrimitiveSchemaType } from "../../schema/types.ts";
 
 export type SchemaObject =
     | PrimitiveObject
@@ -10,42 +10,42 @@ export type PrimitiveObject = {
     type: PrimitiveSchemaType;
     description?: string;
 } | {
-    type: [PrimitiveSchemaType, 'null'];
+    type: [PrimitiveSchemaType, "null"];
     description?: string;
 };
 
 export type EnumObject = {
-    type: 'string';
+    type: "string";
     enum: string[];
     description?: string;
 } | {
-    type: ['string', 'null'];
+    type: ["string", "null"];
     enum: string[];
     description?: string;
 };
 
 export type ArrayObject = {
-    type: 'array';
+    type: "array";
     items: SchemaObject;
     description?: string;
 } | {
-    type: ['array', 'null'];
+    type: ["array", "null"];
     items: SchemaObject;
     description?: string;
 };
 
 export type ObjectObject = {
-    type: 'object';
+    type: "object";
     properties: Record<string, SchemaObject>;
     required: string[];
     additionalProperties: boolean;
     description?: string;
 } | {
-    type: ['object', 'null'];
+    type: ["object", "null"];
     properties: Record<string, SchemaObject>;
     required: string[];
     additionalProperties: boolean;
     description?: string;
 };
 
-export type MinimumValidObject = { type: string } | { type: [string, 'null'] };
+export type MinimumValidObject = { type: string } | { type: [string, "null"] };
