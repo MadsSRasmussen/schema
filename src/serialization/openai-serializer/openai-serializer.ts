@@ -12,6 +12,15 @@ import { generateSchema } from "./utils/generator.ts";
  * A json-serializer compatible with the OpenAI json_schema standard.
  */
 export class OpenAISerializer implements SchemaSerializer {
+
+    /** Create a new OpenAISerializer, enabeling serialization in formats compattible with the OpenAI api and other providers that use similar serialization. */
+    constructor() {}
+
+    /**
+     * Generate a serializeable object compatible with the OpenAI api and other providers that use imilar serialization.
+     *
+     * @param data The schema instance to generate the serializeable object from.
+     */
     serializable(data: Schema): object {
         switch (true) {
             case data instanceof EnumSchema:
@@ -54,10 +63,20 @@ export class OpenAISerializer implements SchemaSerializer {
         }
     }
 
+    /** 
+     * Generate a serialized string compatible with the OpenAI api and other providers that use imilar serialization.
+     *
+     * @param data The schema instance to serialize.
+     */
     serialize(data: Schema): string {
         return JSON.stringify(this.serializable(data));
     }
 
+    /** 
+     * Generate a `Schema` instance from data serialized to the standard compatible with the OpenAI api.
+     *
+     * @param serializedData The serialized data compatible with the OpenAI api.
+     */
     deserialize(serializedData: string): Schema {
         const object = JSON.parse(serializedData);
         if (!Validator.valid(object)) {
