@@ -2,11 +2,11 @@
     "name": "@msrass/schema",
     "version": "0.1.1",
     "exports": {
-        ".": "./mod.ts",
+        ".": "./src/schema/index.ts",
         "./serialization": "./src/serialization/index.ts"
     },
     "publish": {
-        "include": ["README.md", "mod.ts", "src/"]
+        "include": ["README.md", "src/"]
     },
     "tasks": {
         "dev": "deno test --watch"

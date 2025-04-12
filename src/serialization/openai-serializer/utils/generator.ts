@@ -6,7 +6,7 @@ import type {
     ObjectSchema,
     PrimitiveSchema,
     StringSchema,
-} from "../../../../mod.ts";
+} from "../../../schema/schema.ts";
 import type {
     ArrayObject,
     EnumObject,
@@ -15,7 +15,7 @@ import type {
     PrimitiveObject,
     SchemaObject,
 } from "../types.ts";
-import { Schema } from "../../../../mod.ts";
+import { Schema } from "../../../schema/schema.ts";
 import { Validator } from "./validator.ts";
 
 export function generateSchema<T extends MinimumValidObject>(data: T): Schema {

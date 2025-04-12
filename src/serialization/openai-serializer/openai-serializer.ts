@@ -4,10 +4,13 @@ import {
     EnumSchema,
     ObjectSchema,
     type Schema,
-} from "../../../mod.ts";
+} from "../../schema/schema.ts";
 import { Validator } from "./utils/validator.ts";
 import { generateSchema } from "./utils/generator.ts";
 
+/**
+ * A json-serializer compatible with the OpenAI json_schema standard.
+ */
 export class OpenAISerializer implements SchemaSerializer {
     serializable(data: Schema): object {
         switch (true) {
