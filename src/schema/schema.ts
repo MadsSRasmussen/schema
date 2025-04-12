@@ -6,7 +6,7 @@ export abstract class Schema {
     public isOptional: boolean = false;
     public description?: string;
 
-    /** 
+    /**
      * This cannot be used to instantiate a Schema instance directly.
      *
      * @param type The schema type to be constructed.
@@ -17,7 +17,7 @@ export abstract class Schema {
         this.description = description;
     }
 
-    /** 
+    /**
      * Add a description.
      *
      * @param description The description metadata do attatch to the instance.
@@ -66,7 +66,6 @@ export abstract class Schema {
 
 /** Abstract PrimitiveSchema class. */
 export abstract class PrimitiveSchema extends Schema {
-
     /**
      * This cannot be used to instantiate a PrimitiveSchema directly.
      *
@@ -79,7 +78,6 @@ export abstract class PrimitiveSchema extends Schema {
 
 /** NumberSchema represents a number type. */
 export class NumberSchema extends PrimitiveSchema {
-    
     /** Create a new NumberSchema representing a number type. */
     constructor() {
         super("number");
@@ -88,7 +86,6 @@ export class NumberSchema extends PrimitiveSchema {
 
 /** BooleanSchema represents a boolean type. */
 export class BooleanSchema extends PrimitiveSchema {
-    
     /** Create a new BooleanSchema representing a boolean type. */
     constructor() {
         super("boolean");
@@ -97,7 +94,6 @@ export class BooleanSchema extends PrimitiveSchema {
 
 /** StringSchema represents a string type. */
 export class StringSchema extends PrimitiveSchema {
-    
     /** Create a new StringSchema representing a string type. */
     constructor() {
         super("string");
@@ -106,7 +102,6 @@ export class StringSchema extends PrimitiveSchema {
 
 /** EnumSchema represents an enum type. */
 export class EnumSchema extends StringSchema {
-
     /** The valid enum options. */
     public options: string[];
 
@@ -123,7 +118,6 @@ export class EnumSchema extends StringSchema {
 
 /** ArraySchema represents an array type. */
 export class ArraySchema extends Schema {
-
     /** The schema of the items in the array. */
     public schema: Schema;
 
@@ -140,7 +134,6 @@ export class ArraySchema extends Schema {
 
 /** ObjectSchema represents an object type. */
 export class ObjectSchema extends Schema {
-
     /** The schemas of the properties of the object schema. */
     public properties: Record<string, Schema>;
 
